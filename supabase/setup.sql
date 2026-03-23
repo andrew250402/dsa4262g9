@@ -27,12 +27,12 @@ drop policy if exists "quiz_results_insert_all" on public.quiz_results;
 create policy "quiz_results_insert_all"
   on public.quiz_results
   for insert
-  to anon
+  to anon, authenticated
   with check (true);
 
 drop policy if exists "quiz_results_select_all" on public.quiz_results;
 create policy "quiz_results_select_all"
   on public.quiz_results
   for select
-  to anon
+  to anon, authenticated
   using (true);

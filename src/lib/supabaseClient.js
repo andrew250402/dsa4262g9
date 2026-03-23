@@ -8,11 +8,69 @@ export const hasSupabase = Boolean(supabaseUrl && supabaseAnonKey)
 export const supabase = hasSupabase
   ? createClient(supabaseUrl, supabaseAnonKey, {
       auth: {
-        persistSession: false,
-        autoRefreshToken: false,
+        persistSession: true,
+        autoRefreshToken: true,
       },
     })
   : null
+
+export async function getCurrentAuthUser() {
+  if (!supabase) {
+    return null
+  }
+
+  const { data, error } = await supabase.auth.getUser()
+  if (error) {
+    throw error
+  }
+
+  return data.user ?? null
+}
+
+export async function signUpWithEmail(email, password) {
+  if (!supabase) {
+    throw new Error('Supabase is not configured')
+  }
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  })
+
+  if (error) {
+    throw error
+  }
+
+  return data
+}
+
+export async function signInWithEmail(email, password) {
+  if (!supabase) {
+    throw new Error('Supabase is not configured')
+  }
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  })
+
+  if (error) {
+    throw error
+  }
+
+  return data
+}
+
+export async function signOutAuth() {
+  if (!supabase) {
+    return
+  }
+
+  const { error } = await supabase.auth.signOut()
+  if (error) {
+    throw error
+  }
+}
 
 export async function getNextAttemptNumber(sessionId) {
   if (!supabase) {
@@ -83,6 +141,24 @@ export async function getAllResults() {
     .from('quiz_results')
     .select('*')
     .order('taken_at', { ascending: true })
+
+  if (error) {
+    throw error
+  }
+
+  return data ?? []
+}
+
+export async function getResultsBySessionId(sessionId) {
+  if (!supabase) {
+    return []
+  }
+
+  const { data, error } = await supabase
+    .from('quiz_results')
+    .select('*')
+    .eq('session_id', sessionId)
+    .order('attempt_number', { ascending: true })
 
   if (error) {
     throw error

@@ -4,8 +4,14 @@ import ProgressBar from '../components/ProgressBar'
 import QuestionCard from '../components/QuestionCard'
 import { likertOptions, questions } from '../data/questions'
 import { computeAssessment } from '../lib/scoring'
-import { ensureSessionId, saveLatestResult } from '../lib/session'
-import { getNextAttemptNumber, hasSupabase, insertQuizResult } from '../lib/supabaseClient'
+import {
+  appendResultToHistory,
+  ensureSessionId,
+  getNextLocalAttemptNumber,
+  getSessionIdForUser,
+  saveLatestResult,
+} from '../lib/session'
+import { getCurrentAuthUser, getNextAttemptNumber, hasSupabase, insertQuizResult } from '../lib/supabaseClient'
 
 function Quiz() {
   const navigate = useNavigate()
@@ -140,12 +146,17 @@ function Quiz() {
     setIncompleteNotice('')
 
     const assessment = computeAssessment(answers)
-    const sessionId = ensureSessionId()
-    let attemptNumber = 1
+    let sessionId = ensureSessionId()
+    let attemptNumber = getNextLocalAttemptNumber(sessionId)
     let saveError = null
 
     try {
       if (hasSupabase) {
+        const authUser = await getCurrentAuthUser()
+        if (authUser?.id) {
+          sessionId = getSessionIdForUser(authUser.id)
+          attemptNumber = getNextLocalAttemptNumber(sessionId)
+        }
         attemptNumber = await getNextAttemptNumber(sessionId)
       }
     } catch (error) {
@@ -178,9 +189,11 @@ function Quiz() {
       if (hasSupabase) {
         await insertQuizResult(dbPayload)
       }
+      appendResultToHistory(sessionId, localResult)
       saveLatestResult(localResult)
       navigate('/results', { state: { result: localResult, saveError } })
     } catch (error) {
+      appendResultToHistory(sessionId, localResult)
       saveLatestResult(localResult)
       navigate('/results', { state: { result: localResult, saveError: error.message } })
     } finally {
