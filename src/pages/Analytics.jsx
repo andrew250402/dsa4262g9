@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import AnalyticsChart from '../components/AnalyticsChart'
+import InfoHint from '../components/InfoHint'
 import { anxietyTypeList } from '../data/anxietyTypes'
 import { getAllResults, hasSupabase } from '../lib/supabaseClient'
 
@@ -171,7 +172,13 @@ function Analytics() {
   return (
     <main className="space-y-6">
       <header className="rounded-3xl border border-orange-100 bg-white p-8 shadow-sm">
-        <h1 className="text-4xl text-slate-900">Public Analytics Dashboard</h1>
+        <h1 className="flex items-center gap-2 text-4xl text-slate-900">
+          Public Analytics Dashboard
+          <InfoHint
+            label="Why global dashboard"
+            text="This view demonstrates aggregate impact across all users for investors. It shows trends without exposing personal identities."
+          />
+        </h1>
         <p className="mt-3 text-slate-700">All data is anonymised. No personal information is collected.</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {timeFilters.map((filter) => (
@@ -198,23 +205,47 @@ function Analytics() {
         <>
           <section className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <article className="rounded-3xl border border-orange-100 bg-white p-5 shadow-sm">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Total Assessments</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Total Assessments
+                <InfoHint
+                  label="Why total assessments"
+                  text="Shows overall adoption volume. Investors use this as a baseline for traction and funnel completion."
+                />
+              </p>
               <p className="mt-2 text-3xl font-bold text-teal-700">{participantMetrics.totalAssessments}</p>
             </article>
 
             <article className="rounded-3xl border border-orange-100 bg-white p-5 shadow-sm">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Participants</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Participants
+                <InfoHint
+                  label="Why participants"
+                  text="Counts unique users to separate true reach from repeat attempts by the same person."
+                />
+              </p>
               <p className="mt-2 text-3xl font-bold text-slate-900">{participantMetrics.uniqueParticipants}</p>
             </article>
 
             <article className="rounded-3xl border border-orange-100 bg-white p-5 shadow-sm">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Returning Participants</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Returning Participants
+                <InfoHint
+                  label="Why returning participants"
+                  text="Signals retention and whether users find enough value to come back for another assessment cycle."
+                />
+              </p>
               <p className="mt-2 text-3xl font-bold text-slate-900">{participantMetrics.returningParticipants}</p>
               <p className="mt-1 text-sm text-slate-600">{participantMetrics.returningRate}% of participants</p>
             </article>
 
             <article className="rounded-3xl border border-orange-100 bg-white p-5 shadow-sm">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Avg Attempts / Participant</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Avg Attempts / Participant
+                <InfoHint
+                  label="Why average attempts"
+                  text="Measures depth of engagement per user. Higher values indicate stronger habit and follow-up behavior."
+                />
+              </p>
               <p className="mt-2 text-3xl font-bold text-slate-900">
                 {participantMetrics.averageAttemptsPerParticipant.toFixed(2)}
               </p>
@@ -224,7 +255,13 @@ function Analytics() {
           <section className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h2 className="text-3xl text-slate-900">Score Over Time</h2>
+                <h2 className="flex items-center gap-2 text-3xl text-slate-900">
+                  Score Over Time
+                  <InfoHint
+                    label="Why score over time chart"
+                    text="This chart tracks average anxiety trends relative to each participant's first attempt, making progress comparable despite different start dates."
+                  />
+                </h2>
                 <p className="mt-1 text-sm text-slate-600">Relative to each participant&apos;s first assessment.</p>
               </div>
               <div className="inline-flex overflow-hidden rounded-full border border-slate-300 text-sm">
@@ -259,7 +296,13 @@ function Analytics() {
           </section>
 
           <section className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-            <h2 className="text-3xl text-slate-900">Returning Users: Before vs After</h2>
+            <h2 className="flex items-center gap-2 text-3xl text-slate-900">
+              Returning Users: Before vs After
+              <InfoHint
+                label="Why before after chart"
+                text="This chart highlights whether users who return show lower anxiety scores, which is a direct signal of repeated engagement and improvement."
+              />
+            </h2>
             <div className="mt-4 h-80">
               <AnalyticsChart
                 type="bar"

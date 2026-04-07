@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import InfoHint from '../components/InfoHint'
 import { anxietyTypeList } from '../data/anxietyTypes'
 import { ensureSessionId } from '../lib/session'
 import {
@@ -101,11 +102,21 @@ function Landing() {
 
         <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
           {authUser ? (
-            <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-medium text-emerald-700">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 font-medium text-emerald-700">
               Signed in as {authUser.email}
+              <InfoHint
+                label="Why login"
+                text="Login is optional. It keeps your attempts tied to your account across devices and browsers."
+              />
             </span>
           ) : (
-            <span className="text-slate-500">Using anonymous mode</span>
+            <span className="inline-flex items-center gap-2 text-slate-500">
+              Using anonymous mode
+              <InfoHint
+                label="Why guest mode"
+                text="Guest mode lowers friction and encourages first-time completion. Your progress is still tracked locally on this device."
+              />
+            </span>
           )}
 
           {hasSupabase ? (

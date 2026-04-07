@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import AnalyticsChart from '../components/AnalyticsChart'
+import InfoHint from '../components/InfoHint'
 import { anxietyTypeList, anxietyTypes } from '../data/anxietyTypes'
 import { ensureSessionId, getResultHistory, getSessionIdForUser } from '../lib/session'
 import { getCurrentAuthUser, getResultsBySessionId, hasSupabase } from '../lib/supabaseClient'
@@ -198,24 +199,54 @@ function MyProgress() {
   return (
     <main className="space-y-6">
       <header className="rounded-3xl border border-orange-100 bg-white p-8 shadow-sm">
-        <h1 className="text-4xl text-slate-900 md:text-5xl">My Progress Over Time</h1>
+        <h1 className="flex items-center gap-2 text-4xl text-slate-900 md:text-5xl">
+          My Progress Over Time
+          <InfoHint
+            label="Why personal dashboard"
+            text="This dashboard helps each user see whether anxiety levels change across attempts and where targeted practice is working."
+          />
+        </h1>
         <p className="mt-2 text-sm text-slate-600">Viewing history for: {identityLabel}</p>
         {summary ? (
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <article className="rounded-2xl border border-orange-100 bg-orange-50/60 p-4">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Attempts</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Attempts
+                <InfoHint
+                  label="Why attempts metric"
+                  text="Shows how many check-ins you have completed. More attempts make trend interpretation more reliable."
+                />
+              </p>
               <p className="mt-1 text-2xl font-bold text-slate-900">{summary.attempts}</p>
             </article>
             <article className="rounded-2xl border border-orange-100 bg-orange-50/60 p-4">
-              <p className="text-xs uppercase tracking-wide text-slate-500">First attempt</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                First attempt
+                <InfoHint
+                  label="Why first attempt metric"
+                  text="Marks your baseline date so progress can be interpreted relative to where you started."
+                />
+              </p>
               <p className="mt-1 text-lg font-semibold text-slate-900">{formatDate(summary.firstTakenAt)}</p>
             </article>
             <article className="rounded-2xl border border-orange-100 bg-orange-50/60 p-4">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Latest attempt</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Latest attempt
+                <InfoHint
+                  label="Why latest attempt metric"
+                  text="Indicates how current your profile is and when your most recent check-in was completed."
+                />
+              </p>
               <p className="mt-1 text-lg font-semibold text-slate-900">{formatDate(summary.latestTakenAt)}</p>
             </article>
             <article className="rounded-2xl border border-orange-100 bg-orange-50/60 p-4">
-              <p className="text-xs uppercase tracking-wide text-slate-500">Overall anxiety delta</p>
+              <p className="flex items-center gap-1.5 text-xs uppercase tracking-wide text-slate-500">
+                Overall anxiety delta
+                <InfoHint
+                  label="Why overall delta metric"
+                  text="Compares your latest overall score against your first attempt to summarize direction of change."
+                />
+              </p>
               <p
                 className={`mt-1 text-2xl font-bold ${
                   summary.delta < 0 ? 'text-emerald-700' : summary.delta > 0 ? 'text-rose-700' : 'text-slate-700'
@@ -244,7 +275,13 @@ function MyProgress() {
       </header>
 
       <section className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-        <h2 className="text-3xl text-slate-900">Overall Anxiety Trend</h2>
+        <h2 className="flex items-center gap-2 text-3xl text-slate-900">
+          Overall Anxiety Trend
+          <InfoHint
+            label="Why overall trend chart"
+            text="This chart summarizes total anxiety direction over time. It is useful for quickly checking if overall pressure is decreasing."
+          />
+        </h2>
         <p className="mt-1 text-sm text-slate-600">Lower values indicate improvement.</p>
         <div className="mt-4 h-80">
           <AnalyticsChart
@@ -257,7 +294,13 @@ function MyProgress() {
       </section>
 
       <section className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-        <h2 className="text-3xl text-slate-900">Anxiety Type Trends</h2>
+        <h2 className="flex items-center gap-2 text-3xl text-slate-900">
+          Anxiety Type Trends
+          <InfoHint
+            label="Why anxiety type trend chart"
+            text="This chart breaks progress down by anxiety type so users can identify which dimensions are improving and which still need support."
+          />
+        </h2>
         <p className="mt-1 text-sm text-slate-600">Track how each anxiety type changes across your attempts.</p>
         <div className="mt-4 h-80">
           <AnalyticsChart type="line" data={trendData} xKey="attempt" series={series} />
@@ -265,7 +308,13 @@ function MyProgress() {
       </section>
 
       <section className="rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
-        <h2 className="text-3xl text-slate-900">Attempt History</h2>
+        <h2 className="flex items-center gap-2 text-3xl text-slate-900">
+          Attempt History
+          <InfoHint
+            label="Why attempt history"
+            text="Provides per-attempt snapshots for auditability so each score trend can be traced back to concrete assessments."
+          />
+        </h2>
         <div className="mt-4 grid gap-3">
           {results
             .slice()
