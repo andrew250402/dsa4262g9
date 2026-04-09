@@ -4,7 +4,7 @@ export const anxietyTypes = {
     name: 'Communication Anxiety',
     icon: '🗣️',
     description:
-      'You may find it harder to organise thoughts clearly, especially with unexpected questions.',
+      'Fear that you cannot express yourself clearly in real time, even when you know what you want to say.',
     resources: {
       primary: {
         title: 'The STAR Technique — Structure Your Interview Answers',
@@ -33,7 +33,7 @@ export const anxietyTypes = {
     name: 'Appearance Anxiety',
     icon: '🪞',
     description:
-      'You may become more aware of posture, expressions, and how your non-verbal cues might be interpreted.',
+      'Worry that your physical appearance will be judged negatively and distract you from performing your best.',
     resources: {
       primary: {
         title: 'Body Language in an Interview: Master Confidence in Minutes',
@@ -62,7 +62,7 @@ export const anxietyTypes = {
     name: 'Social Anxiety',
     icon: '👥',
     description:
-      'You may feel less comfortable with conversational flow, cues, or small talk in interview settings.',
+      'Difficulty maintaining natural conversational flow, interpreting social cues, and staying engaged in small talk.',
     resources: {
       primary: {
         title: 'How to Get Through a Job Interview with Social Anxiety',
@@ -91,7 +91,7 @@ export const anxietyTypes = {
     name: 'Performance Anxiety',
     icon: '🎯',
     description:
-      'You may focus heavily on getting every answer right, which can increase pressure and overthinking.',
+      'Fear that your answers, knowledge, or abilities are not good enough to show your true competence.',
     resources: {
       primary: {
         title: 'Performance Anxiety: Symptoms, Causes, and Treatments',
@@ -121,7 +121,7 @@ export const anxietyTypes = {
     name: 'Behavioural Anxiety',
     icon: '🤝',
     description:
-      'Your voice, breathing, and movement patterns may shift under stress and affect how confident you feel.',
+      'Worry that visible behaviours such as posture, fidgeting, eye contact, or speech habits create a poor impression.',
     resources: {
       primary: {
         title: 'How to Calm Interview Nerves: 7 Techniques That Work',
