@@ -1,12 +1,12 @@
 const typeQuestions = {
-  communication: [1, 6, 11, 16, 21, 26],
-  appearance: [2, 7, 12, 17, 22, 27],
-  social: [3, 8, 13, 18, 23, 28],
-  performance: [4, 9, 14, 19, 24, 29],
-  behavioural: [5, 10, 15, 20, 25, 30],
+  communication: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  appearance: [10, 11, 12, 13, 14, 15, 16, 17, 18],
+  social: [19, 20, 21, 22, 23, 24, 25, 26, 27],
+  performance: [28, 29, 30, 31, 32, 33, 34, 35, 36],
+  behavioural: [37, 38, 39, 40, 41, 42, 43, 44, 45],
 }
 
-const reverseScoredQuestionIds = new Set([3, 8, 18, 21, 28])
+const reverseScoredQuestionIds = new Set([24])
 
 export function normalizeScore(rawValue) {
   const value = Number(rawValue)
@@ -29,8 +29,8 @@ function mean(values) {
 }
 
 export function computeTypeScores(responses) {
-  if (!Array.isArray(responses) || responses.length !== 30) {
-    throw new Error('Responses must be an array of 30 values')
+  if (!Array.isArray(responses) || responses.length !== 45) {
+    throw new Error('Responses must be an array of 45 values')
   }
 
   return Object.fromEntries(

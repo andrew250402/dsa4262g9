@@ -98,7 +98,7 @@ function Landing() {
           You&apos;ll get a clear score breakdown, a matched practical resource, and a simple way to
           track improvement after your next interview.
         </p>
-        <p className="mt-4 font-medium text-orange-700">30 questions · 5 minutes · No sign-up needed</p>
+        <p className="mt-4 font-medium text-orange-700">45 questions · No sign-up needed</p>
 
         <div className="mt-3 flex flex-wrap items-center gap-3 text-sm">
           {authUser ? (
