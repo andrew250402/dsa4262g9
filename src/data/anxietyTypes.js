@@ -7,25 +7,11 @@ export const anxietyTypes = {
       'Fear that you cannot express yourself clearly in real time, even when you know what you want to say.',
     resources: {
       primary: {
-        title: 'The STAR Technique — Structure Your Interview Answers',
-        url: 'https://www.rightattitudes.com/2008/07/15/star-technique-answer-interview-questions/',
+        title: 'Tips & Guides - Dealing with Speech Anxiety',
+        url: 'https://www.hamilton.edu/academics/centers/oralcommunication/guides/dealing-with-speech-anxiety',
         description:
-          'A practical method to structure answers with clear context, action, and outcomes. It helps you stay organised under pressure and answer confidently even when questions feel broad.',
+          'Explore common symptoms and management strategies such as Visualising Success and Shaking it Off.',
       },
-      secondary: [
-        {
-          title: 'Structuring Interview Answers (3C Pyramid)',
-          url: 'https://differentlywired.co.uk/structuring-interview-answers',
-          description:
-            'A concise framework for building clear and coherent responses without overexplaining.',
-        },
-        {
-          title: 'How to Approach Difficult Interview Questions',
-          url: 'https://www.nextjobpro.com/blog/ace-interview/answering-questions-during-interview/',
-          description:
-            'Step-by-step guidance for handling tough prompts while keeping your message structured.',
-        },
-      ],
     },
   },
   appearance: {
@@ -36,25 +22,11 @@ export const anxietyTypes = {
       'Worry that your physical appearance will be judged negatively and distract you from performing your best.',
     resources: {
       primary: {
-        title: 'Body Language in an Interview: Master Confidence in Minutes',
-        url: 'https://underdog.io/blog/body-language-in-an-interview',
+        title: 'Reducing Appearance Preoccupation',
+        url: 'https://www.cci.health.wa.gov.au/~/media/CCI/Consumer-Modules/Building-Body-Acceptance/Building-Body-Acceptance---03---Reducing-Appearance-Preoccupation.pdf',
         description:
-          'Learn practical body-language adjustments that project calm confidence. The tips are easy to apply immediately before and during interviews.',
+          'Explore common thought processes associated with appearance preoccupation and strategies such as Attention Training and Postponing Appearance Preoccupation, rooted in Cognitive-Behavioural Therapy.',
       },
-      secondary: [
-        {
-          title: '7 Essential Interview Body Language Tips',
-          url: 'https://www.confetto.ai/articles/interview-body-language-tips',
-          description:
-            'A focused checklist covering eye contact, posture, gestures, and facial expression cues.',
-        },
-        {
-          title: 'Why Self-Confidence is More Important Than You Think (mindline.sg)',
-          url: 'https://mindline.sg/grovve/self-help/library/article/why-self-confidence-is-more-important-than-you-think',
-          description:
-            'A grounded perspective on confidence-building habits that can reduce over-monitoring in interviews.',
-        },
-      ],
     },
   },
   social: {
@@ -65,25 +37,11 @@ export const anxietyTypes = {
       'Difficulty maintaining natural conversational flow, interpreting social cues, and staying engaged in small talk.',
     resources: {
       primary: {
-        title: 'How to Get Through a Job Interview with Social Anxiety',
-        url: 'https://wellnessroadpsychology.com/job-interview-with-social-anxiety/',
+        title: 'Social Anxiety Self-Help Guide',
+        url: 'https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-self-help-guides/social-anxiety-self-help-guide/',
         description:
-          'Actionable coping strategies to handle anticipatory anxiety and social discomfort in interview settings. It provides practical ways to stay grounded and connected in conversation.',
+          'Explore common thoughts and behaviours associated with social anxiety and guided management strategies, such as the practice of Challenging Unhelpful Thoughts rooted in Cognitive-Behavioural Therapy.',
       },
-      secondary: [
-        {
-          title: 'How to Excel at Small Talk When You Have Social Anxiety',
-          url: 'https://time.com/7305930/social-anxiety-conversation-tips/',
-          description:
-            'Simple conversation tactics to make rapport-building feel less stressful and more natural.',
-        },
-        {
-          title: 'Social Anxiety — What is it, really? (mindline.sg community)',
-          url: 'https://letstalk.mindline.sg/t/social-anxiety-what-is-it-really/5251',
-          description:
-            'A community-focused explainer that normalises experiences and offers practical perspective.',
-        },
-      ],
     },
   },
   performance: {
@@ -94,26 +52,11 @@ export const anxietyTypes = {
       'Fear that your answers, knowledge, or abilities are not good enough to show your true competence.',
     resources: {
       primary: {
-        title: 'Performance Anxiety: Symptoms, Causes, and Treatments',
-        url: 'https://positivepsychology.com/performance-anxiety/',
+        title: 'This Way Up Coping Strategies for Performance Anxiety, Clinical Psychologist Katie Dobinson',
+        url: 'https://thiswayup.org.au/resources/managing-performance-anxiety-the-strategies-that-work',
         description:
-          'A practical overview of why performance anxiety happens and what evidence-based strategies can help. It is useful for reducing perfectionism pressure before interviews.',
+          'Explore causes, features and proven coping strategies, such as Controlled Breathing and Graded Exposure.',
       },
-      secondary: [
-        {
-          title: 'Overcoming Performance Anxiety',
-          url: 'https://mindpeace.ca/performance-anxiety/',
-          description:
-            'A concise guide with reframing and regulation strategies for high-pressure moments.',
-        },
-        {
-          title: 'Wysa AI Chatbot — Guided Self-Care Exercises (mindline.sg)',
-          url: 'https://www.mindline.sg',
-          description:
-            'Access guided self-care exercises for stress and anxiety management between interviews.',
-          mindlinePowered: true,
-        },
-      ],
     },
   },
   behavioural: {
@@ -124,26 +67,11 @@ export const anxietyTypes = {
       'Worry that visible behaviours such as posture, fidgeting, eye contact, or speech habits create a poor impression.',
     resources: {
       primary: {
-        title: 'How to Calm Interview Nerves: 7 Techniques That Work',
-        url: 'https://www.hiredkit.ai/blog/calm-interview-nerves-anxiety-techniques-2025',
+        title: 'Anxiety Shaking: What causes it?',
+        url: 'https://www.healthline.com/health/anxiety-shaking#panic-disorder',
         description:
-          'A practical set of calming techniques to regulate breathing, pacing, and nervous energy. Use this before and during interviews to show steadier presence.',
+          'Explore core reasons for the manifestations of this anxiety type and strategies such as Progressive Muscle Relaxation and Mindfulness Exercises.',
       },
-      secondary: [
-        {
-          title: 'How to Show Confidence Even If You Are Nervous',
-          url: 'https://www.casebasix.com/pages/show-confidence-even-nervous',
-          description:
-            'Behavior-focused tactics for projecting confidence even when you still feel anxious inside.',
-        },
-        {
-          title: 'Wysa AI Chatbot — Guided Self-Care Exercises (mindline.sg)',
-          url: 'https://www.mindline.sg',
-          description:
-            'A guided support option for managing anxiety and building calm routines between interviews.',
-          mindlinePowered: true,
-        },
-      ],
     },
   },
 }
