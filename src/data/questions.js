@@ -31,7 +31,7 @@ export const questions = [
   },
   {
     id: 7,
-    text: 'I pause, restart, or rephrase my sentences frequently as I am worried that I cannot express myself clearly.',
+    text: 'I pause, restart, or rephrase my sentences frequently when attempting to express an idea',
     reverse: false,
   },
   {
